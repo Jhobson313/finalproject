@@ -6,9 +6,18 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Welcome to Dream Setter  
 </h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+<h3>
+	*Set your dreams bruh*
+</h3>
+
+<P>  The time is ${serverTime} now get off me. </P>
+
+<a href="<c:url value="/login"/>">LOGIN</a>
+<a href="<c:url value="/login"/>"><br>Create new user</a>
+<a href="<c:url value="https://calendar.google.com/calendar/render#main_7"/>"><br><br>Go to Google Calendar</a>
+
 </body>
 </html>
