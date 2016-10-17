@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import co.grandcircus.dreamsetter.model.Goal;
+
 /**
  * Handles requests for the add goal page.
  */
@@ -23,17 +25,11 @@ public class AddGoalController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/addgoal", method = RequestMethod.GET)
-	public String addgoal(Locale locale, Model model) {
-		logger.info("Welcome! The client locale is {}.", locale);
+	public String addgoal(Goal goal, Model model) {
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		model.addAttribute("goal",new Goal() );
 		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "/addgoal";
+		return "addgoal";
 	}
 	
 }
