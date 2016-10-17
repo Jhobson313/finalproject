@@ -1,4 +1,4 @@
-package co.grandcircus.dreamsetter;
+package co.grandcircus.dreamsetter.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

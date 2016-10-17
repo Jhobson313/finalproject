@@ -11,20 +11,20 @@ public class Deposit {
 	private Integer depositId;
 	private Integer  goalId;
 	private Double depositAmount;
-	private Date date;
+	private Date currentDate;
 	
 	public Deposit() {
 	}
-
 	// Constructor
+	
 	public Deposit(Integer depositId, Double depositAmount) {
 		}
-
-	public Deposit(Integer depositId, Double depositAmount, Date date) {
+	
+	public Deposit(Integer depositId, Double depositAmount, Date currentDate) {
 		super();
 		this.depositId = depositId;
 		this.depositAmount = depositAmount;
-		this.date = date;
+		this.currentDate = currentDate;
 	}
 
 	public Integer getGoalId() {
@@ -53,12 +53,12 @@ public class Deposit {
 		this.depositAmount = depositAmount;
 	}
 	
-	public Date getDate() {
-		return date;
+	public Date getCurrentDate() {
+		return currentDate;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setCurrentDate(Date currentDate) {
+		this.currentDate = currentDate;
 	}
 
 

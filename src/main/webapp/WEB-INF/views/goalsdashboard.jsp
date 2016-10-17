@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>
-	Here's a list of your goals
+	Here's a list of your goal info:
 </h1>
 
 <ul>
@@ -16,7 +16,8 @@
 </ul>
 
 <h4>
-	<a href="<c:url value="/addgoal"/>">+ Add A NEW GOAL</a>
+	<a href="<c:url value="/deposit-details"/>">Deposit Details</a>
+	<a href="<c:url value="/addgoal"/>"> Add A NEW GOAL</a>
 </h4>
 
 <a href="<c:url value="/"/>">HOME</a>

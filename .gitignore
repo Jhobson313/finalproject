@@ -3,4 +3,4 @@
 bin
 target
 *.jar
-local.propertes
+local.properties

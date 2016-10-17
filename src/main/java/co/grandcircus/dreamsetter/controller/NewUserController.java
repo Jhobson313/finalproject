@@ -1,4 +1,4 @@
-package co.grandcircus.dreamsetter;
+package co.grandcircus.dreamsetter.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Handles requests for this goal's details page.
+ * Handles requests for the new user page.
  */
 @Controller
-public class GoalDetailsController {
+public class NewUserController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(GoalDetailsController.class);
+	private static final Logger logger = LoggerFactory.getLogger(NewUserController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/goaldetails", method = RequestMethod.GET)
-	public String goaldetails(Locale locale, Model model) {
+	@RequestMapping(value = "/newuser", method = RequestMethod.GET)
+	public String newuser(Locale locale, Model model) {
 		logger.info("Welcome! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -33,7 +33,7 @@ public class GoalDetailsController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "/goaldetails";
+		return "/newuser";
 	}
 	
 }

@@ -59,16 +59,15 @@ function drawAxisTickColors() {
     </script>
 
 </head>
-<body>
+<%-- <body>--%>
 <body>
     <div id="chart_div" style="width: 900px; height: 500px"></div>
   </body>
-
 <h4>
+	<a href="<c:url value="/deposit-details"/>">Deposit Details</a>
 	<a href="<c:url value="/goalsdashboard"/>">Back to the Dashboard</a>
 </h4>
 
 <a href="<c:url value="/"/>">HOME</a>
-
 </body>
 </html>
