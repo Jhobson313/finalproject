@@ -7,7 +7,7 @@
 <body>
 	<h1>Add A New Goal Here</h1>
 	<div class="input-group input-group-sm">
-		<input type="text" class="form-control" placeholder="Goal Name">
+		<input type="text" class="form-control" placeholder="Goal Start Date">
 		<span class="input-group-btn">
 			<button class="btn btn-default" type="button">Enter</button>
 		</span>
@@ -34,7 +34,7 @@
 
 
 	<ul>
-		<li>Name</li>
+		<li>Start Date</li>
 		<li>Description</li>
 		<li>Due Date</li>
 		<li>Cost</li>

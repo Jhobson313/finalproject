@@ -57,19 +57,19 @@
 </head>
 <body>
 <h1>
-	Welcome to Dream Setter  
+	Welcome to DreamSetter  
 </h1>
 
-<h3>
-	*Set your dreams*
-</h3>
+<h2>
+	Make your Dreams a reality with DREAMSETTER!<br> Track your progress and stay motivated to accomplish your goals!
+</h2>
 
 <P>  The time is ${serverTime}. </P>
-
+<strong>
 <a href="<c:url value="/login"/>">LOGIN</a>
 <a href="<c:url value="/newuser"/>"><br>Create new user</a>
 <a href="<c:url value="https://calendar.google.com/calendar/render#main_7"/>"><br><br>Go to Google Calendar</a>
-<a href="<c:url value="/goalsdashboard"/>"><br><br>Goals Dashboard (Temp)</a>
+<a href="<c:url value="/goalsdashboard"/>"><br><br>Goals Dashboard </a></strong>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 

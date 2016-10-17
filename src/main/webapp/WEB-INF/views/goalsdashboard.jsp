@@ -45,16 +45,15 @@
 <body>
 	<div id="calendar_basic" style="width: 1000px; height: 350px;"></div>
 </body>
-<body>
-<h1>
+<body><strong>
 	Here's a list of your goals
 </h1>
 
 <ul>
 	<li>Goal 1 <a href="<c:url value="/goaldetails"/>"> Details</a></li>
 	<li>Goal 2 <a href="<c:url value="/goaldetails"/>"> Details</a></li>
-	<li>Etc...</li>
-</ul>
+	<li>Add Goal</li>
+</ul></strong>
 
 <h4>
 	<a href="<c:url value="/addgoal"/>">+ Add A NEW GOAL</a>
