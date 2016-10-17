@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import co.grandcircus.dreamsetter.model.Goal;
 
+
 /**
  * Handles requests for the add goal page.
  */
@@ -25,7 +26,7 @@ public class AddGoalController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/addgoal", method = RequestMethod.GET)
-	public String addgoal(Goal goal, Model model) {
+	public String addGoal(Goal goal, Model model) {
 		
 		model.addAttribute("goal",new Goal() );
 		
