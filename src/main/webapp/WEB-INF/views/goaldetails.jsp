@@ -59,6 +59,17 @@ function drawAxisTickColors() {
     </script>
 
 </head>
+<h1>
+	<c:choose>
+		<c:when test="${ empty depositAmount }">
+			All Deposits
+		</c:when>
+		<c:otherwise>
+			Deposits <c:out value="${ depositAmount }"/>
+		</c:otherwise>
+	</c:choose>
+</h1>
+
 <body>
 <body>
     <div id="chart_div" style="width: 900px; height: 500px"></div>
