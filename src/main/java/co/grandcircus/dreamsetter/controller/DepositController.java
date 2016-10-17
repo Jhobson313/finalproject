@@ -34,9 +34,7 @@ public class DepositController {
 	 * Selects the deposit view and display all deposits
 	 *  
 	 */
-
-
-//double depositAmount = 0;
+//	double depositAmount = 0;
 //	@RequestMapping(value = "/deposit-details", method = RequestMethod.GET)
 //	public String listDeposit(Model model, @RequestParam(value="depositAmount")int depositAmount){
 //		List<Deposit> deposits;
@@ -56,9 +54,8 @@ public class DepositController {
 //
 	
 	/**
-	 * Display Total deposit amount for one goal 
+	 * Display Total of deposit amounts for one goal 
 	 */
-	
 	@RequestMapping(value = "/deposit-details", method = RequestMethod.GET)
 	public String getTotalDeposits(Model model, @RequestParam (value= "depositAmount", required = false)Double depositAmount){
 		//model.addAttribute("depositId", depositId);
@@ -118,7 +115,7 @@ public class DepositController {
 		model.addAttribute("Deposit", new Deposit());
 		
 		logger.info("GET /Deposits/create -> Deposit-create.jsp");
-		return "Deposit-create";
+		return "deposit-create";
 	}
 	
 	/**
