@@ -33,7 +33,7 @@ public class AddGoalController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "/addgoal";
+		return "addgoal";
 	}
 	
 }
