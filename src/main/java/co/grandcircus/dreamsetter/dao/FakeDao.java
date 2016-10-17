@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import co.grandcircus.dreamsetter.model.Deposit;
+import co.grandcircus.dreamsetter.model.Goal;
 
 @Service
 public class FakeDao {
@@ -27,6 +28,12 @@ public class FakeDao {
 	public static List<Deposit> getDepositAmount(double depositAmount) {
 		
 		return null;
+	}
+
+
+	public static void addGoal(Goal goal) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

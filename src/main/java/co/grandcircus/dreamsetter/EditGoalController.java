@@ -1,9 +1,5 @@
 package co.grandcircus.dreamsetter;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -11,7 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import co.grandcircus.movies.model.User;
+import co.grandcircus.dreamsetter.dao.FakeDao;
+import co.grandcircus.dreamsetter.model.Goal;
 
 /**
  * Handles requests for the add goal page.
@@ -26,22 +23,22 @@ public class EditGoalController {
 	 */
 	@RequestMapping(value = "/addgoal", method = RequestMethod.GET)
 	public String createUserForm(Model model) {
-		model.addAttribute("depositAmount", new depositAmount());
+		model.addAttribute("goal", new Goal());
 		
-		logger.info("GET /users/create -> user-create.jsp");
-		return "user-create";
+		logger.info("GET /addgoal -> addgoal.jsp");
+		return "addgoal";
 	}
 	
 	/**
 	 * Save new user
 	 */
-	@RequestMapping(value = "/users/create", method = RequestMethod.POST)
-	public String createUser(User user, Model model) {
-		fakeDao.addUser(user);
+	@RequestMapping(value = "/addgoal", method = RequestMethod.POST)
+	public String createUser(Goal goal, Model model) {
+		FakeDao.addGoal(goal);
 		model.asMap().clear();
 		
-		logger.info("POST /users/create -> redirect to /users");
-		return "redirect:/users";
+		logger.info("POST /addgoal -> redirect to /users");
+		return "redirect:addgoal";
 	}
 	
 	
