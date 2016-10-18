@@ -48,11 +48,11 @@
 	<strong> Here's a list of your goals
 
 		<ul>
-			<li>Goal 1 <a href="<c:url value="/goaldetails"/>"> Details</a></li>
-			<li>Goal 2 <a href="<c:url value="/goaldetails"/>"> Details</a></li>
-			<li>Add Goal</li>
-		</ul>
-	</strong>
+	<c:forEach var="goal" items="${goals}" >
+		<li><a href="<c:url value="/goaldetails=${goals}"/>">${goal }</a></li>
+	</c:forEach>
+</ul>
+</strong>
 
 	<h4>
 	<a href="<c:url value="/deposit-details"/>">Deposit Details</a>

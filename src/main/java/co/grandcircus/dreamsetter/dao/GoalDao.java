@@ -21,7 +21,7 @@ import co.grandcircus.dreamsetter.model.Deposit;
 import co.grandcircus.dreamsetter.model.Goal;
 @Primary
 @Repository
-public class GoalDao extends Goal implements DepositDao {
+public class GoalDao extends  DepositDaoJdbcImpl {
 
 	private static final Logger logger = LoggerFactory.getLogger(Goal.class);
 
