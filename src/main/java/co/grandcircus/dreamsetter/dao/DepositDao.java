@@ -62,15 +62,6 @@ import co.grandcircus.dreamsetter.model.Goal;
 		
 		
 		/**
-		 * Add the given deposit to the list using the deposit amount and current date parms.
-		 * 
-		 * @param depositAmount the deposit to add
-		 * @return the id of the new deposit
-		 */	
-		int addDeposit(Deposit depositAmount, Date currentDate);
-		
-		
-		/**
 		 * Update the specified deposit
 		 * 
 		 * @param id numeric id identifies the deposit to update
@@ -88,10 +79,6 @@ import co.grandcircus.dreamsetter.model.Goal;
 		 */
 		void deleteDeposit(int depositId) throws NotFoundException;
 
-		static void addGoal(Goal goal) {
-			// TODO Auto-generated method stub
-			
-		}
 		
 		
 	}

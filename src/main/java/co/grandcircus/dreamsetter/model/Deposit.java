@@ -53,12 +53,22 @@ public class Deposit {
 		this.depositAmount = depositAmount;
 	}
 	
-	public Date getCurrentDate() {
-		return currentDate;
+//	public Date getCurrentDate(){
+//		return currentDate;
+//	}
+	
+	public java.sql.Date getCurrentDate() {
+		return (java.sql.Date) currentDate;
 	}
 
 	public void setCurrentDate(Date currentDate) {
 		this.currentDate = currentDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Deposit [depositId=" + depositId + ", goalId=" + goalId + ", depositAmount=" + depositAmount
+				+ ", currentDate=" + currentDate + "]";
 	}
 
 

@@ -35,10 +35,14 @@
 					<td><c:out value="${ deposit.depositAmount }" /> 
 						<a href="<c:url value="/deposits?goal=${deposit.goalId}"/>">(filter)</a></td>
 					
+					<td><c:out value="${ deposit.currentDate }" /> 
+						<a href="<c:url value="/deposits?date=${deposit.currentDate}"/>">(filter)</a></td>
+						
 					<td><c:out value="${ deposit.goalId }" /></td>
-					<td><c:if test="${ deposit.blackAndWhite }">&#10004;
 					
-				</c:if></td>
+					<td><c:if test="${ deposit.blackAndWhite }">&#10004; 	
+					</c:if></td>
+					
 					<td><c:out value="${ deposit.origin }" /></td>
 
 				</tr>
@@ -46,22 +50,28 @@
 		</table>
 	</div>
 
-	<div>
+<%--	<div>
 		<ul>
 			<li>Deposit 1:</li>
 			<li>Deposit 2:</li>
 			<li>Deposit 3:</li>
 		</ul>
-	</div>
+	</div> --%>
 
 	<div>
 		<h2>Total Deposits</h2>
 		<c:out value="${depositAmount}"/>
 	</div>
 
-	<div class="action-bar">
-		<a class="add-btn" href="<c:url value="/deposits/create"/>">Add a new deposit</a>
-	</div>
+	<form method="post">
+		<div>
+			<label>Deposit Amount:</label> <input type="text"
+				name="depositAmount" value="${depositDao.depositAmount}" />
+		</div>
+			
+		<button type="submit">Submit</button>
+	</form>
+	
 
 </body>
 </html>
