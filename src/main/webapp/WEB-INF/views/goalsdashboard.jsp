@@ -4,43 +4,51 @@
 <head>
 	<title>Goals Dashboard</title>
 </head>
- <script type="text/javascript"
+
+<script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-	google.charts.load("current", {
-		packages : [ "calendar" ]
+	// Load the Visualization API and the corechart package.
+	google.charts.load('current', {
+		'packages' : [ 'corechart' ]
 	});
+
+	// Set a callback to run when the Google Visualization API is loaded.
 	google.charts.setOnLoadCallback(drawChart);
 
+	// Callback that creates and populates a data table,
+	// instantiates the pie chart, passes in the data and
+	// draws it.
 	function drawChart() {
-		var dataTable = new google.visualization.DataTable();
-		dataTable.addColumn({
-			type : 'date',
-			id : 'Date'
-		});
-		dataTable.addColumn({
-			type : 'number',
-			id : 'Progress'
-		});
-		dataTable.addRows([ [ new Date(2016, 1, 16), 10 ],
-				[ new Date(2016, 2, 17), 50 ], [ new Date(2016, 3, 13), 37 ],
-				[ new Date(2016, 4, 13), 60 ], [ new Date(2016, 5, 13), 50 ],
-				[ new Date(2016, 6, 13), 32 ], [ new Date(2016, 7, 13), 32 ],
-				[ new Date(2016, 8, 13), 39 ], [ new Date(2016, 9, 13), 37 ],
-				[ new Date(2016, 10, 13), 50 ], [ new Date(2016, 11, 14), 50 ],
-				[ new Date(2016, 12, 15), 30 ], ]);
 
-		var chart = new google.visualization.Calendar(document
-				.getElementById('calendar_basic'));
+		// Create the data table.
+		var data = new google.visualization.DataTable();
+		data.addColumn('string', 'Goals');
+		data.addColumn('number', 'Progress');
+		data.addRows([ [ 'Pay off Debt', 3 ], [ 'Holiday shopping', 1 ],
+				[ 'Saving for the future', 1 ], [ 'Buy birthday gifts', 1 ],
+				[ 'Purchase a New home', 2 ] ]);
 
+		// Set chart options
 		var options = {
-			title : "Goals Progress",
-			height : 350,
+			'title' : 'YOUR PERSONAL GOALS',
+			'width' : 800,
+			'height' : 600
 		};
 
-		chart.draw(dataTable, options);
+		// Instantiate and draw our chart, passing in some options.
+		var chart = new google.visualization.PieChart(document
+				.getElementById('chart_div'));
+		chart.draw(data, options);
 	}
 </script>
+</head>
+
+<body>
+	<!--Div that will hold the pie chart-->
+	<div id="chart_div"></div>
+
+</body>
 
 </head>
 
@@ -49,8 +57,8 @@
 
 		<ul>
 	<c:forEach var="goal" items="${goals}" >
-		<li><a href="<c:url value="/goaldetails=${goals}"/>">${goal }</a></li>
-	</c:forEach>
+		<li><a href="<c:url value="/goaldetails=${goal.goalAmount}/${goal.goalDescription}"/>">${goal.goalAmount}/${goal.goalDescription}</a></li>
+		</c:forEach>
 </ul>
 </strong>
 

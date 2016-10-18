@@ -8,14 +8,17 @@ public class Goal  {
 		private Double goalAmount;
 		private Date startDate;
 		private Date dueDate;
+		private String goalDescription;
+		
 		
 		// Constructor
 		public Goal() {
 			}
 
-		public Goal(Double goalAmount, Date startDate,Date dueDate) {
+		public Goal(Double goalAmount, Date startDate,Date dueDate,String goalDescription) {
 			super();
 			
+			this.goalDescription= goalDescription;
 			this.goalAmount = goalAmount;
 			this.startDate = startDate;
 			this.dueDate = dueDate;
@@ -60,6 +63,13 @@ public class Goal  {
 
 		public void setDueDate(Date dueDate) {
 			this.dueDate = dueDate;
+		}
+		public String getGoalDescription() {
+			return goalDescription;
+		}
+		
+		public void setGoalDescription(String goalDescription) {
+			this.goalDescription = goalDescription;
 		}
 
 

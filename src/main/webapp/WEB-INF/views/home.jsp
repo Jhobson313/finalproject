@@ -76,11 +76,11 @@
 		</head>
 
 		<body>
-			<h1>Welcome to DreamSetter</h1>
+			<h1>Welcome to DREAMSETTER</h1>
 
 			<h2>
 				Make your Dreams a reality with DREAMSETTER!<br> Track your
-				progress and stay motivated to accomplish your goals! <i>*A
+				progress and stay motivated to accomplish your goals!<br> <i>*A
 					dream is just a goal without a due date*</i>
 			</h2>
 

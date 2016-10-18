@@ -41,8 +41,9 @@ public class GoalDao {
 				Date dueDate = result.getDate("due_Date");
 				Date startDate = result.getDate("start_Date");
 				Double goalAmount = result.getDouble("goal_Amount");
-
-				goal.add(new Goal(goalAmount, startDate, dueDate));
+				String goalDescription= result.getString("goal_description");
+				
+				goal.add(new Goal(goalAmount, startDate, dueDate, goalDescription));
 			}
 
 			return goal;

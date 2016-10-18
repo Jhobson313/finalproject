@@ -21,49 +21,40 @@
 
 <%@ include file="login_bar.jsp"%>
 
-<form method="post">
+<form method="post" action="<c:url value="/addgoal"/>">
 	
-	<div class="input-group input-group-sm">
-		<input type="text" class="form-control" placeholder="Goal Description"
-		value="${goals.description}">
-		<span class="input-group-btn">
-			<button class="btn btn-default" type="button">Enter</button>
-		</span>
-	</div>
-	<div>
-		<label>Start Date:</label> <input type="date" name="startDate"
-			value="${goals.startDate}" />
-	</div>
-	<div class="input-group input-group-sm">
-		<input type="text" class="form-control" placeholder="Goal Start Date">
-		<span class="input-group-btn">
+	<div class="input-group input-group-sm" action="<c:url value="/addgoal"/>">
+	<a class="add-btn" href="<c:url value="/addgoal"/>">Add a goal</a>
+		<label>Goal Description:</label> <input type="text"
+			class="form-control" placeholder="Goal Description"
+			value="${goals.description}" > <span class="input-group-btn">
 			<button class="btn btn-default" type="button">Enter</button>
 		</span>
 	</div>
 
-	<div>
-		<label>Due Date:</label> <input type="date" name="due_date"
-			value="${goals.due_date}" />
-	</div>
 	<div class="input-group input-group-sm">
-		<input type="text" class="form-control" placeholder="Goal Due Date">
-		<span class="input-group-btn">
+		<label>Start Date:</label><input type="text" class="form-control"
+			placeholder="Goal Start Date" value="${goals.startDate}"> <span
+			class="input-group-btn">
 			<button class="btn btn-default" type="button">Enter</button>
 		</span>
 	</div>
 
-	<div>
-		<label>Goal Amount:</label> <input type="number" name="goalAmount"
-			value="${goals.goalAmount}" />
-	</div>
 	<div class="input-group input-group-sm">
-		<input type="text" class="form-control" placeholder="Goal Amount:">
-		<span class="input-group-btn">
+		<label>Due Date:</label><input type="text" class="form-control"
+			placeholder="Goal Due Date" value="${goals.dueDate}"> <span
+			class="input-group-btn">
 			<button class="btn btn-default" type="button">Enter</button>
 		</span>
 	</div>
 
-	<button type="submit">ADD</button>
+	<div class="input-group input-group-sm">
+		<label>Goal Amount:</label> <input type="text" class="form-control"
+			placeholder="Goal Amount" value="${goals.amount}"> <span
+			class="input-group-btn">
+			<button class="btn btn-default" type="button">Enter</button>
+		</span>
+	</div>
 </form>
 
 
