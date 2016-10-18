@@ -21,7 +21,7 @@ import co.grandcircus.dreamsetter.model.Deposit;
 import co.grandcircus.dreamsetter.model.Goal;
 @Primary
 @Repository
-public class GoalDao extends  DepositDaoJdbcImpl {
+public class GoalDao {
 
 	private static final Logger logger = LoggerFactory.getLogger(Goal.class);
 
@@ -31,7 +31,7 @@ public class GoalDao extends  DepositDaoJdbcImpl {
 	public List<Goal> getAllGoals() {
 		String sql = "SELECT * from goals_table";
 
-		try (Connection connection = ((Statement) connectionFactory).getConnection();
+		try (Connection connection = (connectionFactory).getConnection();
 				Statement statement = connection.createStatement();
 				ResultSet result = statement.executeQuery(sql)) {
 
