@@ -1,6 +1,10 @@
 package co.grandcircus.dreamsetter.dao;
 import java.util.Date;
 import java.util.List;
+
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
+
 //import java.util.Set;
 import co.grandcircus.dreamsetter.exception.NotFoundException;
 import co.grandcircus.dreamsetter.model.Deposit;
@@ -8,6 +12,8 @@ import co.grandcircus.dreamsetter.model.Goal;
 	/**
 	 * Responsibility: To provide access to all the movies.
 	 */
+	@Repository
+	
 	public interface DepositDao {
 		
 		/**

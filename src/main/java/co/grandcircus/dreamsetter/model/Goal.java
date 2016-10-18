@@ -2,32 +2,24 @@ package co.grandcircus.dreamsetter.model;
 
 import java.util.Date;
 
-public class Goal extends Deposit {
-	
-	public class Deposit {
+public class Goal  {	
 		private Integer depositId;
 		private Integer goalId;
 		private Double goalAmount;
 		private Date startDate;
 		private Date dueDate;
 		
-		
-		public Deposit() {
-		}
-
 		// Constructor
-		public Deposit(Integer depositId, Double goalAmount) {
+		public Goal() {
 			}
 
-		public Deposit(Integer depositId, Integer  goalId,
-				Double goalAmount, Date startDate,Date dueDate) {
+		public Goal(Double goalAmount, Date startDate,Date dueDate) {
 			super();
-			this.depositId = depositId;
+			
 			this.goalAmount = goalAmount;
 			this.startDate = startDate;
 			this.dueDate = dueDate;
-			this.goalId = goalId;
-		}
+			}
 
 		public Integer getGoalId() {
 			return goalId;
@@ -74,4 +66,3 @@ public class Goal extends Deposit {
 	}
 
 
-}
