@@ -85,13 +85,13 @@ public class DepositController {
 	 * @throws NotFoundException 
 	 */
 	@RequestMapping(value = "/deposit/{id}", method = RequestMethod.POST)
-	public String saveDeposit(@PathVariable int id, Deposit Deposit, Model model) throws NotFoundException {
-		depositDao.updateDeposit(id, Deposit);
+	public String saveDeposit(@PathVariable int id, Deposit deposit, Model model) throws NotFoundException {
+		depositDao.updateDeposit(id, deposit);
 		model.addAttribute("id", id);
-		model.addAttribute("Deposit", Deposit);
+		model.addAttribute("deposit", deposit);
 		
-		logger.info("POST /Deposits/" + id + " -> Deposit.jsp");
-		return "Deposit";
+		logger.info("POST /deposit/" + id + " -> deposit.jsp");
+		return "deposit";
 	}
 	
 	/**
@@ -103,34 +103,23 @@ public class DepositController {
 		depositDao.deleteDeposit(id);
 		model.asMap().clear();
 		
-		logger.info("POST /Deposits/" + id + "/delete -> redirect to /Deposits");
-		return "redirect:/Deposits";
+		logger.info("POST /deposit/" + id + "/delete -> redirect to /deposit");
+		return "redirect:/deposit";
 	}
 	
-	/**
-	 * Add one deposit
-	 */
-	@RequestMapping(value = "/Deposits/create", method = RequestMethod.GET)
-	public String createDepositForm(Model model) {
-		model.addAttribute("Deposit", new Deposit());
-		
-		logger.info("GET /Deposits/create -> Deposit-create.jsp");
-		return "deposit-create";
-	}
 	
 	/**
-	 * Save new deposit
+	 * Add/Redirect to save new deposit
 	 */
-	@RequestMapping(value = "/Deposits/create", method = RequestMethod.POST)
-	public String createDeposit(Deposit Deposit, Model model) {
-		depositDao.addDeposit(Deposit);
+	@RequestMapping(value = "/deposit-details", method = RequestMethod.POST)
+	public String createDeposit(Deposit depositAmount, Model model) {
+		depositDao.addDeposit(depositAmount);
 		model.asMap().clear();
+		System.out.println(depositAmount);
+		logger.info("POST /deposit-details -> redirect to /deposit-details.jsp");
+		return "redirect:/deposit-details";
 		
-		logger.info("POST /Deposits/create -> redirect to /Deposits");
-		return "redirect:/Deposits";
 	}
-	
-
 	
 }//the end
 	

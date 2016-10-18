@@ -60,7 +60,7 @@ import co.grandcircus.dreamsetter.model.Deposit;
 		 * @param depositAmount the deposit to add
 		 * @return the id of the new deposit
 		 */	
-		int addDeposit(Deposit depositAmount, Date currentDate);
+		int addDeposit(Deposit goalId, Deposit depositAmount, Date currentDate);
 		
 		
 		/**
@@ -80,6 +80,8 @@ import co.grandcircus.dreamsetter.model.Deposit;
 		 * @throws NotFoundException if the deposit does not exist
 		 */
 		void deleteDeposit(int depositId) throws NotFoundException;
+
+		Deposit getDeposit(int depositId) throws NotFoundException;
 		
 		
 	}
