@@ -1,12 +1,19 @@
 package co.grandcircus.dreamsetter.dao;
 import java.util.Date;
 import java.util.List;
+
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
+
 //import java.util.Set;
 import co.grandcircus.dreamsetter.exception.NotFoundException;
 import co.grandcircus.dreamsetter.model.Deposit;
+import co.grandcircus.dreamsetter.model.Goal;
 	/**
 	 * Responsibility: To provide access to all the movies.
 	 */
+	@Repository
+	
 	public interface DepositDao {
 		
 		/**
@@ -55,15 +62,6 @@ import co.grandcircus.dreamsetter.model.Deposit;
 		
 		
 		/**
-		 * Add the given deposit to the list using the deposit amount and current date parms.
-		 * 
-		 * @param depositAmount the deposit to add
-		 * @return the id of the new deposit
-		 */	
-		int addDeposit(Deposit goalId, Deposit depositAmount, Date currentDate);
-		
-		
-		/**
 		 * Update the specified deposit
 		 * 
 		 * @param id numeric id identifies the deposit to update
@@ -81,7 +79,6 @@ import co.grandcircus.dreamsetter.model.Deposit;
 		 */
 		void deleteDeposit(int depositId) throws NotFoundException;
 
-		Deposit getDeposit(int depositId) throws NotFoundException;
 		
 		
 	}
