@@ -5,10 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.NestedCheckedException;
 
 import co.grandcircus.dreamsetter.model.Deposit;
 import co.grandcircus.dreamsetter.model.Goal;
@@ -20,6 +23,27 @@ public class GoalDao<JdbcConnectionFactory> extends Goal {
 	
 	@Autowired
 	private JdbcConnectionFactory connectionFactory;
+
+	public List<Goal> getAllGoals() {
+		String sql = "SELECT SUM(deposit_amount) as 'DEPOSIT' from ebdb.deposit_table";
+		
+		try (Connection connection = ((Statement) connectionFactory).getConnection();
+			Statement statement = connection.createStatement();
+			ResultSet result = statement.executeQuery(sql)) {
+
+			List<Goal> goal = new ArrayList<Goal>();
+			while (result.next()) {
+				Integer goalId = result.getInt("goalId");
+				Double goalAmount = result.getDouble("goalAmount");
+				
+				goal.add(new Goal());
+			}
+
+			return goal;
+		} catch (SQLException ex) {
+			throw new RuntimeException(ex);
+		}
+	}
 
 	
 	public int addGoal(Goal goal) {
@@ -42,6 +66,24 @@ public class GoalDao<JdbcConnectionFactory> extends Goal {
 			}
 
 			return goal.getGoalId();
+		} catch (SQLException ex) {
+			throw new RuntimeException(ex);
+		}
+	}
+		
+	public void updateMovie(int depositAmount,int goalId, Goal goal) throws Exception {
+		String sql = "UPDATE AddGoal SET depositAmount = ? WHERE goalid = ?";
+		try (Connection conn = ((Statement) connectionFactory).getConnection();
+				PreparedStatement statement = conn
+						.prepareStatement(sql)) {
+			
+			statement.setInt(1, goal.getGoalId());
+			statement.setDouble(2, goal.getDepositAmount());
+
+			int rowsUpdated = statement.executeUpdate();
+			if (rowsUpdated != 1) {
+				throw new Exception("No such goal");
+			}
 		} catch (SQLException ex) {
 			throw new RuntimeException(ex);
 		}
