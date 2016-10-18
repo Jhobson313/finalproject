@@ -19,9 +19,10 @@ import org.springframework.stereotype.Repository;
 import co.grandcircus.dreamsetter.exception.NotFoundException;
 import co.grandcircus.dreamsetter.model.Deposit;
 import co.grandcircus.dreamsetter.model.Goal;
+
 @Primary
 @Repository
-public class GoalDao extends Goal implements DepositDao {
+public class GoalDao {
 
 	private static final Logger logger = LoggerFactory.getLogger(Goal.class);
 
@@ -31,7 +32,7 @@ public class GoalDao extends Goal implements DepositDao {
 	public List<Goal> getAllGoals() {
 		String sql = "SELECT * from goals_table";
 
-		try (Connection connection = ((Statement) connectionFactory).getConnection();
+		try (Connection connection = (connectionFactory).getConnection();
 				Statement statement = connection.createStatement();
 				ResultSet result = statement.executeQuery(sql)) {
 
@@ -90,53 +91,4 @@ public class GoalDao extends Goal implements DepositDao {
 			throw new RuntimeException(ex);
 		}
 	}
-
-	@Override
-	public List<Deposit> getAllDeposits() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Deposit> getDepositsByGoal(int goalId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Deposit getDepositAmount(int depositId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Double getTotalDeposits() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int addDeposit(Deposit deposit) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int addDeposit(Deposit depositAmount, Date currentDate) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void updateDeposit(int depositId, Deposit deposit) throws NotFoundException {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void deleteDeposit(int depositId) throws NotFoundException {
-		// TODO Auto-generated method stub
-
-	}
-
 }
