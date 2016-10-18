@@ -38,9 +38,9 @@ public class GoalDao {
 
 			List<Goal> goal = new ArrayList<Goal>();
 			while (result.next()) {
-				Date dueDate = result.getDate("dueDate");
-				Date startDate = result.getDate("startDate");
-				Double goalAmount = result.getDouble("goalAmount");
+				Date dueDate = result.getDate("due_Date");
+				Date startDate = result.getDate("start_Date");
+				Double goalAmount = result.getDouble("goal_Amount");
 
 				goal.add(new Goal(goalAmount, startDate, dueDate));
 			}
