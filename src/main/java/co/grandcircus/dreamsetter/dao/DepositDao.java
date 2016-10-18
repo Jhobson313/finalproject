@@ -4,6 +4,7 @@ import java.util.List;
 //import java.util.Set;
 import co.grandcircus.dreamsetter.exception.NotFoundException;
 import co.grandcircus.dreamsetter.model.Deposit;
+import co.grandcircus.dreamsetter.model.Goal;
 	/**
 	 * Responsibility: To provide access to all the movies.
 	 */
@@ -80,6 +81,11 @@ import co.grandcircus.dreamsetter.model.Deposit;
 		 * @throws NotFoundException if the deposit does not exist
 		 */
 		void deleteDeposit(int depositId) throws NotFoundException;
+
+		static void addGoal(Goal goal) {
+			// TODO Auto-generated method stub
+			
+		}
 		
 		
 	}

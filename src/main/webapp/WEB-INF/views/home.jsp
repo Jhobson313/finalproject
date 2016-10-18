@@ -73,8 +73,6 @@
 
 		<head>
 <title>Home</title>
-<%@ include file="login_bar.jsp"%>
-<%@ include file="head.jsp"%>
 		</head>
 
 		<body>
