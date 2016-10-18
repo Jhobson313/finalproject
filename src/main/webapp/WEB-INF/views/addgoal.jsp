@@ -9,7 +9,7 @@
 	- DAO: GoalDaoJdbcImpl.java
 	- Controller: AddGoalController.java
 	- MySQL Table: db_dreamsetter
- 
+ --%>
 <html>
 <head>
 <%@ include file="head.jsp"%>
@@ -26,26 +26,21 @@
 		</div>
 		
 		<div>
-			<label>Start Date:</label>
-			 <input type="date" name="start_date" value="${.category}"/>
-		</div>
-		
-		<div>
 			<label>Due Date:</label> <input type="date" name="due_date"
 				value="${goals.due_date}" />
 		</div>
 		
 		<div>
-			<label>available funds:</label> <input type="number" name="funds"
-				value="${goals.funds}" />
+			<label>available funds:</label> <input type="number" name="goalAmount"
+				value="${goals.goalAmount}" />
 		</div>
 		
 		<div>
-			<label>goal amount:</label> <input type="number" name ="amount"
-				value="${goals.amount}" />
+			<label>start Date:</label> <input type="date" name ="startDate"
+				value="${goals.startDate}" />
 		</div>
 		
-		<button type="submit">Submit</button>
+		<button type="submit">ADD</button>
 	</form>
 
 	<h4>
@@ -55,7 +50,7 @@
 
 	<a href="<c:url value="/"/>">HOME</a>
 
-</body> --%>
+</body> 
 <%--James bootstrap code is below: --%>
 
 <html>
