@@ -54,19 +54,19 @@ public class GoalDao {
 
 	public int addGoal(Goal goal) {
 		String sql = "INSERT INTO AddGoal (goalAmount, goalId) VALUES (?, ?)";
-		try (Connection connection = ((Statement) connectionFactory).getConnection();
+		try (Connection connection = (connectionFactory).getConnection();
 				PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
 			int affectedRows = statement.executeUpdate();
 			if (affectedRows == 0) {
-				throw new SQLException("Creating movie failed, no rows affected.");
+				throw new SQLException("Creating goal failed, no rows affected.");
 			}
 
 			try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
 				if (generatedKeys.next()) {
 					goal.setGoalId(generatedKeys.getInt(1));
 				} else {
-					throw new SQLException("Creating movie failed, no ID obtained.");
+					throw new SQLException("Creating goal failed, no ID obtained.");
 				}
 			}
 
@@ -76,9 +76,9 @@ public class GoalDao {
 		}
 	}
 
-	public void updateMovie(int depositAmount, int goalId, Goal goal) throws Exception {
-		String sql = "UPDATE AddGoal SET depositAmount = ? WHERE goalid = ?";
-		try (Connection conn = ((Statement) connectionFactory).getConnection();
+	public void updateGoal(int goal_Amount, int goalId, Goal goal) throws Exception {
+		String sql = "UPDATE AddGoal SET goal_Amount = ? WHERE goalid = ?";
+		try (Connection conn = ( connectionFactory).getConnection();
 				PreparedStatement statement = conn.prepareStatement(sql)) {
 
 			statement.setInt(1, goal.getGoalId());

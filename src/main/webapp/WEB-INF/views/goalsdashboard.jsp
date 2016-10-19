@@ -25,9 +25,9 @@
 		var data = new google.visualization.DataTable();
 		data.addColumn('string', 'Goals');
 		data.addColumn('number', 'Progress');
-		data.addRows([ [ 'Pay off Debt', 3 ], [ 'Holiday shopping', 1 ],
-				[ 'Saving for the future', 1 ], [ 'Buy birthday gifts', 1 ],
-				[ 'Purchase a New home', 2 ] ]);
+		data.addRows([ [ 'Pay off Debt', 3 ], [ 'Shopping', 1 ],
+				[ 'Saving for the future', 1 ], [ 'Vacation', 1 ],
+				[ 'Buy a Home', 2 ] ]);
 
 		// Set chart options
 		var options = {

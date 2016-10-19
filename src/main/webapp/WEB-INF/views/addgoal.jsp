@@ -24,11 +24,10 @@
 <form method="post" action="<c:url value="/addgoal"/>">
 	
 	<div class="input-group input-group-sm" action="<c:url value="/addgoal"/>">
-	<a class="add-btn" href="<c:url value="/addgoal"/>">Add a goal</a>
 		<label>Goal Description:</label> <input type="text"
 			class="form-control" placeholder="Goal Description"
 			value="${goals.description}" > <span class="input-group-btn">
-			<button class="btn btn-default" type="button">Enter</button>
+			<button class="btn btn-default" type="submit" >Enter</button>
 		</span>
 	</div>
 
@@ -36,7 +35,7 @@
 		<label>Start Date:</label><input type="text" class="form-control"
 			placeholder="Goal Start Date" value="${goals.startDate}"> <span
 			class="input-group-btn">
-			<button class="btn btn-default" type="button">Enter</button>
+			<button class="btn btn-default" type="submit">Enter</button>
 		</span>
 	</div>
 
@@ -44,7 +43,7 @@
 		<label>Due Date:</label><input type="text" class="form-control"
 			placeholder="Goal Due Date" value="${goals.dueDate}"> <span
 			class="input-group-btn">
-			<button class="btn btn-default" type="button">Enter</button>
+			<button class="btn btn-default" type="submit">Enter</button>
 		</span>
 	</div>
 
@@ -52,7 +51,7 @@
 		<label>Goal Amount:</label> <input type="text" class="form-control"
 			placeholder="Goal Amount" value="${goals.amount}"> <span
 			class="input-group-btn">
-			<button class="btn btn-default" type="button">Enter</button>
+			<button class="btn btn-default" type="submit">Enter</button>
 		</span>
 	</div>
 </form>

@@ -24,10 +24,9 @@ public class UserDaoImpl implements UserDao {
 
 	// Constructor
 	public UserDaoImpl() {
-		users.add(new User("Ulysses", "Grant", "ulysses@example.com", "union"));
-		users.add(new User("Mark", "Twain", "mark@example.com", "sawyer"));
+		users.add(new User("James", "Hobson", "james-hobson@att.net", "james"));
+		users.add(new User("Yolanda", "Gandy", "Ygandy@gmail.com", "Yoyo"));
 		users.add(new User("Lame", "Duck", "lame@example.com", "quack"));
-		
 		for (User user : users) {
 			assignId(user);
 		}
