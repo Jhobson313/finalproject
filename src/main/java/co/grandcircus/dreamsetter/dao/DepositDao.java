@@ -34,14 +34,14 @@ import co.grandcircus.dreamsetter.model.Goal;
 		 */
 		List<Deposit> getDepositsByGoal(int goalId);
 
-//		/**
-//		 * Get list of deposits by depositId
-//		 * 
-//		 * @param depositAmount
-//		 * @return the result total of all deposits for the particular goal
-//		 */
-	//	Object getDepositAmount(int depositId);
-		Deposit getDepositAmount(int depositId);
+		/**
+		 * Get list of deposits by depositId
+		 * 
+		 * @param depositAmount
+		 * @return the result total of all deposits for the particular goal
+		 * Object = Double and getDepositAmount is an instance of Double
+		 */
+		Double getDepositAmount(int depositId);
 		
 		
 		/**
@@ -58,7 +58,7 @@ import co.grandcircus.dreamsetter.model.Goal;
 		 * @param depositAmount the deposit to add
 		 * @return the id of the new deposit
 		 */
-		int addDeposit(Deposit deposit);
+		Integer addDeposit(Deposit depositAmount);
 		
 		
 		/**
@@ -68,7 +68,7 @@ import co.grandcircus.dreamsetter.model.Goal;
 		 * @param depositAmount the new values for the deposit
 		 * @throws NotFoundException if the deposit does not exist
 		 */
-		void updateDeposit(int depositId, Deposit deposit) throws NotFoundException;
+	//	void updateDeposit(int depositId, Deposit deposit) throws NotFoundException;
 		
 		
 		/**
