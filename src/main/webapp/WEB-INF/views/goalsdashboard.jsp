@@ -1,8 +1,8 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="false"%>
 <html>
 <head>
-	<title>Goals Dashboard</title>
+<title>Goals Dashboard</title>
 </head>
 
 <script type="text/javascript"
@@ -56,18 +56,19 @@
 	<strong> Here's a list of your goals
 
 		<ul>
-	<c:forEach var="goal" items="${goals}" >
-		<li><a href="<c:url value="/goaldetails=${goal.goalAmount}/${goal.goalDescription}"/>">${goal.goalAmount}/${goal.goalDescription}</a></li>
-		</c:forEach>
-</ul>
-</strong>
+			<c:forEach var="goal" items="${goals}">
+				<li><a
+					href="<c:url value="/goaldetails=${goal.goalAmount}/${goal.goalDescription}"/>">${goal.goalAmount}/${goal.goalDescription}</a></li>
+			</c:forEach>
+		</ul>
+	</strong>
 
 	<h4>
-	<a href="<c:url value="/deposit-details"/>">Deposit Details</a>
-	<a href="<c:url value="/addgoal"/>"> Add A NEW GOAL</a>
-</h4>
+		<a href="<c:url value="/deposit-details"/>">Deposit Details</a> <a
+			href="<c:url value="/addgoal"/>"> Add A NEW GOAL</a>
+	</h4>
 
-<a href="<c:url value="/"/>">HOME</a>
+	<a href="<c:url value="/"/>">HOME</a>
 
 </body>
 </html>
