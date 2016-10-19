@@ -55,7 +55,7 @@ public class GoalDao {
 	}
 
 	public int addGoal(Goal goal) {
-		String sql = "INSERT INTO AddGoal (goalAmount, goalDescription , startDate, dueDate) VALUES (?, ?)";
+		String sql = "INSERT INTO AddGoal (goalAmount, goalDescription , startDate, dueDate) VALUES (?, ?, ? ,?)";
 		try (Connection connection = (connectionFactory).getConnection();
 				PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 			
