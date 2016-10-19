@@ -9,8 +9,7 @@ public class Goal  {
 		private Date startDate;
 		private Date dueDate;
 		private String goalDescription;
-		
-		
+				
 		// Constructor
 		public Goal() {
 			}
@@ -32,8 +31,6 @@ public class Goal  {
 		public void setGoalId(Integer goalId) {
 			this.goalId = goalId;
 		}
-
-		
 
 		// getter
 		public Double getGoalAmount() {
@@ -65,7 +62,6 @@ public class Goal  {
 		public void setGoalDescription(String goalDescription) {
 			this.goalDescription = goalDescription;
 		}
-
 
 	}
 

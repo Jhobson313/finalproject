@@ -76,6 +76,7 @@
 
         var options = {
           title: 'DREAMSETTER-GOALS STEP CHART',
+          'is3D':true,
           vAxis: {title: 'GOAL PROGRESS'},
           isStacked: true
         };
