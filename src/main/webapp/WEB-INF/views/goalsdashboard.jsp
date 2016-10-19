@@ -32,6 +32,7 @@
 		// Set chart options
 		var options = {
 			'title' : 'YOUR PERSONAL GOALS',
+			'is3D':true,
 			'width' : 800,
 			'height' : 600
 		};
