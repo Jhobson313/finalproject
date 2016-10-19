@@ -32,7 +32,7 @@ public class Deposit {
 	}
 
 	public void setGoalId(Integer goalId) {
-		this.goalId = goalId;
+		this.goalId = goalId;	
 	}
 
 	// getter
