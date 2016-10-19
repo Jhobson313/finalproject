@@ -13,7 +13,7 @@
 	- Controller: HomeController
 	- MySQL Table: db_dreamsetter
  --%>
- 
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -72,25 +72,24 @@
 
 
 		<head>
-		<title>Home</title>
+<title>Home</title>
 		</head>
 
 		<body>
 			<h1>Welcome to DREAMSETTER</h1>
 
 			<h2>
-				Make your Dreams a reality with DREAMSETTER!<br>Stay motivated to accomplish your goals!
-				<br>Track your progress !!!  <br>
+				Make your Dreams a reality with DREAMSETTER!<br>Stay motivated
+				to accomplish your goals! <br>Track your progress !!! <br>
 				<i>*A Dream is just a goal without a due date!*</i>
 			</h2>
 
 			<P>The time is ${serverTime}.</P>
-			<strong> <a href="<c:url value="/login"/>">LOGIN</a> <a
-				href="<c:url value="/newuser"/>"><br>Create new user</a> <a
-				href="<c:url value="https://calendar.google.com/calendar/render#main_7"/>"><br>
-				<br>Go to Google Calendar</a> <a
-				href="<c:url value="/goalsdashboard"/>"><br>
-				<br>Goals Dashboard </a></strong>
+			<a href="<c:url value="https://calendar.google.com/calendar/render#main_7"/>"><br>
+				<br>Go to Google Calendar</a>
+			<a href="<c:url value="/goalsdashboard"/>"><br> <br>Goals
+				Dashboard </a>
+			</strong>
 			<script
 				src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 			<script

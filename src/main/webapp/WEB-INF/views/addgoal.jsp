@@ -61,50 +61,34 @@
 
 
 
-<script type="text/javascript"
-	src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-	// Load the Visualization API and the corechart package.
-	google.charts.load('current', {
-		'packages' : [ 'corechart' ]
-	});
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['MONTH (Year)',  'PROJECTED PROGRESS', 'ACTUAL PROGRESS'],
+          ['November', 				1000,         	1500],
+          ['December',				2000,         	2500],
+          ['January',   			3000,         	3500],
+          ['Febuary',   			4000,         	4500]
+        ]);
 
-	// Set a callback to run when the Google Visualization API is loaded.
-	google.charts.setOnLoadCallback(drawChart);
+        var options = {
+          title: 'DREAMSETTER-GOALS STEP CHART',
+          vAxis: {title: 'GOAL PROGRESS'},
+          isStacked: true
+        };
 
-	// Callback that creates and populates a data table,
-	// instantiates the pie chart, passes in the data and
-	// draws it.
-	function drawChart() {
+        var chart = new google.visualization.SteppedAreaChart(document.getElementById('chart_div'));
 
-		// Create the data table.
-		var data = new google.visualization.DataTable();
-		data.addColumn('string', 'Goals');
-		data.addColumn('number', 'Progress');
-		data.addRows([ [ 'Pay off Debt', 3 ], [ 'Holiday shopping', 1 ],
-				[ 'Saving for the future', 1 ], [ 'Buy birthday gifts', 1 ],
-				[ 'Purchase a New home', 2 ] ]);
-
-		// Set chart options
-		var options = {
-			'title' : 'YOUR PERSONAL GOALS',
-			'width' : 800,
-			'height' : 600
-		};
-
-		// Instantiate and draw our chart, passing in some options.
-		var chart = new google.visualization.PieChart(document
-				.getElementById('chart_div'));
-		chart.draw(data, options);
-	}
-</script>
-</head>
-
-<body>
-	<!--Div that will hold the pie chart-->
-	<div id="chart_div"></div>
-
-</body>
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
 
 <h4>
 	<a href="<c:url value="/goalsdashboard"/>">This Submit button takes
