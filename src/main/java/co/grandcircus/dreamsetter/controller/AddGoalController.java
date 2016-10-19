@@ -34,7 +34,8 @@ public class AddGoalController {
 	@RequestMapping(value = "/addgoal", method = RequestMethod.GET)
 	public String addGoalForm( Model model) {
 		
-		model.addAttribute("goal",new Goal() );
+		model.addAttribute("goal",new Goal());
+		
 		logger.info("GET /addgoal -> addgoal.jsp");
 		return "addgoal";
 	}

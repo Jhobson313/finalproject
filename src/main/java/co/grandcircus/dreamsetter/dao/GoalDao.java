@@ -28,7 +28,9 @@ public class GoalDao {
 
 	@Autowired
 	private JdbcConnectionFactory connectionFactory;
-
+	
+	
+    
 	public List<Goal> getAllGoals() {
 		String sql = "SELECT * from goals_table";
 
@@ -53,15 +55,20 @@ public class GoalDao {
 	}
 
 	public int addGoal(Goal goal) {
-		String sql = "INSERT INTO AddGoal (goalAmount, goalId) VALUES (?, ?)";
+		String sql = "INSERT INTO AddGoal (goalAmount, goalDescription , startDate, dueDate) VALUES (?, ?)";
 		try (Connection connection = (connectionFactory).getConnection();
 				PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-
+			java.sql.Date sqlstartDate = new java.sql.Date(goal.getStartDate().getTime());
+			java.sql.Date sqldueDate = new java.sql.Date(goal.getDueDate().getTime());
+			statement.setDouble(1, goal.getGoalAmount());
+			statement.setString(2, goal.getGoalDescription());
+			statement.setDate(3,  sqlstartDate);
+			statement.setDate(4, sqldueDate);
+						
 			int affectedRows = statement.executeUpdate();
 			if (affectedRows == 0) {
 				throw new SQLException("Creating goal failed, no rows affected.");
 			}
-
 			try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
 				if (generatedKeys.next()) {
 					goal.setGoalId(generatedKeys.getInt(1));
@@ -71,23 +78,6 @@ public class GoalDao {
 			}
 
 			return goal.getGoalId();
-		} catch (SQLException ex) {
-			throw new RuntimeException(ex);
-		}
-	}
-
-	public void updateGoal(int goal_Amount, int goalId, Goal goal) throws Exception {
-		String sql = "UPDATE AddGoal SET goal_Amount = ? WHERE goalid = ?";
-		try (Connection conn = ( connectionFactory).getConnection();
-				PreparedStatement statement = conn.prepareStatement(sql)) {
-
-			statement.setInt(1, goal.getGoalId());
-			statement.setDouble(2, goal.getGoalAmount());
-
-			int rowsUpdated = statement.executeUpdate();
-			if (rowsUpdated != 1) {
-				throw new Exception("No such goal");
-			}
 		} catch (SQLException ex) {
 			throw new RuntimeException(ex);
 		}
