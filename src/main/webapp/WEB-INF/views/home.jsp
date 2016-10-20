@@ -39,26 +39,26 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="C:\Users\User\workspace\finalproject\src\main\webapp\resources\dream-big.jpg" float=right
+					<img src="<c:url value="/resources/dream-big.jpg"/>" float=center
 						height=100px width=1100px alt="Dream to reality">
 				</div>
 				
 				<div class="item">
-					<img src="C:\Users\User\workspace\finalproject\src\main\webapp\resources\dreams.jpg" float=center
+					<img src="<c:url value="/resources/dreams.jpg"/>" float=center
 						height=100px width=1100px alt="Dreams">
 				</div>
 
 				<div class="item">
-					<img src="C:\Users\User\workspace\finalproject\src\main\webapp\resources\dreams-road-sign.jpg" float=center
+					<img src="<c:url value="/resources/dreams-road-sign.jpg"/>" float=center
 						height=100px width=1100px alt="Follow your Dreams">
 				</div>
 
 				<div class="item">
-					<img src="C:\Users\User\workspace\finalproject\src\main\webapp\resources\Dreams cl.jpg" float=center
+					<img src="<c:url value="/resources/Dreams cl.jpg"/>" float=center
 						height=100px width=1100px alt="Dream Cloud">
 				</div>
 				<div class="item">
-					<img src="C:\Users\User\workspace\finalproject\src\main\webapp\resources\Dream to reality.jpg" float=right
+					<img src="<c:url value="/resources/Dream to reality.jpg"/>" float=right
 						height=100px width=1100px alt="Dream to reality">
 				</div>
 				
