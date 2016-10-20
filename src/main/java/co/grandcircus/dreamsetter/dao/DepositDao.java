@@ -10,14 +10,14 @@ import co.grandcircus.dreamsetter.exception.NotFoundException;
 import co.grandcircus.dreamsetter.model.Deposit;
 import co.grandcircus.dreamsetter.model.Goal;
 	/**
-	 * Responsibility: To provide access to all the movies.
-	 */
+	 * Responsibility: To provide access to all the deposit data.
+	 * @author Administrator - Yolanda Gandy*/
+	
 	@Repository
 	
 	public interface DepositDao {
 		
-		/**
-		 * /**
+		 /**
 		 * Get a list that contains all the deposits.
 		 * 
 		 * @param depositAmount
@@ -45,7 +45,7 @@ import co.grandcircus.dreamsetter.model.Goal;
 		
 		
 		/**
-		 * get deposit for a particular goal and display on the /goal details screen
+		 * get total deposits for a goal and display on the /goal details screen
 		 * 
 		 * @param depositAmount
 		 * @return the result total of all deposits for the particular goal

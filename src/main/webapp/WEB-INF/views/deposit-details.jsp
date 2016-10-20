@@ -83,42 +83,27 @@ function drawAxisTickColors() {
 <%@ include file="head.jsp"%>
 </head>
 <body>
-	
 	<div>
-		<table>
-			<tr>
-				<th>Deposit</th>
-			</tr>
+		<table>			
+	<%--		<tr> <c:out value= "${ depositDao.getAllDeposits()}"/></tr>
 			<c:forEach var="deposit" items="${deposits}">
 				<tr>
 					<td><a href="<c:url value="/deposits/${deposit.depositId}"/>">
-						<c:out value="${ deposit.depositAmount }" /></a></td>
-						
-					<td><c:out value="${ deposit.depositAmount }" /> 
-						<a href="<c:url value="/deposits?goal=${deposit.goalId}"/>">(filter)</a></td>
-					
-					<td><c:out value="${ deposit.currentDate }" /> 
+						<c:out value="${ depositDao.depositAmount }" /></a></td>
+							
+					<td><c:out value="${ depositDao.currentDate }" /> 
 						<a href="<c:url value="/deposits?date=${deposit.currentDate}"/>">(filter)</a></td>
-						
-					<td><c:out value="${ deposit.goalId }" /></td>
 					
 					<td><c:if test="${ deposit.blackAndWhite }">&#10004; 	
 					</c:if></td>
 					
-					<td><c:out value="${ deposit.origin }" /></td>
+					<td><c:out value="${ deposit.origin }" /></td> 
 
 				</tr>
 			</c:forEach>
 		</table>
-	</div>
+	</div>--%>
 
-<%--	<div>
-		<ul>
-			<li>Deposit 1:</li>
-			<li>Deposit 2:</li>
-			<li>Deposit 3:</li>
-		</ul>
-	</div> --%>
 
 	<div>
 		<h2>Total Deposits</h2>

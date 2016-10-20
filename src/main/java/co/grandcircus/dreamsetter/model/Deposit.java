@@ -18,7 +18,7 @@ public class Deposit {
 	// Constructor
 	
 	public Deposit(Integer depositId, Double depositAmount) {
-		}
+	}
 	
 	public Deposit(Integer depositId, Double depositAmount, Date currentDate) {
 		super();
@@ -52,11 +52,7 @@ public class Deposit {
 	public void setDepositAmount(Double depositAmount) {
 		this.depositAmount = depositAmount;
 	}
-	
-//	public Date getCurrentDate(){
-//		return currentDate;
-//	}
-	
+		
 	public java.sql.Date getCurrentDate() {
 		return (java.sql.Date) currentDate;
 	}

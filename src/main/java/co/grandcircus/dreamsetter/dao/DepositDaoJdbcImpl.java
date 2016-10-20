@@ -16,11 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import co.grandcircus.dreamsetter.model.Deposit;
 import co.grandcircus.dreamsetter.exception.NotFoundException;
-import co.grandcircus.dreamsetter.model.Deposit;
 
 /**
- * Provides access to dreamsetter database by connecting to a Deposit table in a
- * SQL database.
+ * @author Administrator, Yolanda Gandy
+ * 
+ * Provides access to dreamsetter database by connecting to the Deposit table in a
+ * MySQL database.
  */
 @Repository
 public class DepositDaoJdbcImpl implements DepositDao {
@@ -56,75 +57,66 @@ public class DepositDaoJdbcImpl implements DepositDao {
 				Statement statement = connection.createStatement();
 				ResultSet result = statement.executeQuery(sql)) {
 
-			List<Deposit> deposits = new ArrayList<Deposit>();
+			List<Deposit> deposit = new ArrayList<Deposit>();
 			while (result.next()) {
 				Integer depositId = result.getInt("deposit_id");
 				Double depositAmount = result.getDouble("deposit_amount");
 				Date currentDate = result.getDate("current_date");
 
-				deposits.add(new Deposit(depositId, depositAmount, currentDate));
+				deposit.add(new Deposit(depositId, depositAmount, currentDate));				
 			}
-			return deposits;
+			return deposit;
 
 		} catch (SQLException ex) {
 			throw new RuntimeException(ex);
 		}
 	}
 
-	// @Override
-	// public List<Deposit> getDepositsByGoal(Int goalID) {
-	// String sql = "SELECT * FROM SimpleDeposit WHERE category = ?";
-	// try (Connection connection = connectionFactory.getConnection();
-	// PreparedStatement statement = connection.prepareStatement(sql)) {
-	// statement.setString(1, cat);
-	// ResultSet result = statement.executeQuery();
-	//
-	// List<Deposit> Deposits = new ArrayList<Deposit>();
-	// while (result.next()) {
-	// Integer id = result.getInt("id");
-	// String title = result.getString("title");
-	// String category = result.getString("category");
-	//
-	// Deposits.add(new Deposit(id, title, category));
-	// }
-	//
-	// return Deposits;
-	// } catch (SQLException ex) {
-	// throw new RuntimeException(ex);
-	// }
-	// }
+	
+	 @Override
+	 public Double getDepositAmount(int depositId) {
+	 String sql = "SELECT * FROM ebdb.deposit_table WHERE id = ?";
+	 Double depositAmount = 0.00;
+	 try (Connection connection = connectionFactory.getConnection();
+			PreparedStatement statement = connection.prepareStatement(sql)) {
+		 	statement.setInt(1, depositId);
+		 	ResultSet result = statement.executeQuery();
+		 	while (result.next()) {
+		 		depositAmount = result.getDouble("deposit_amount"); 
+		 	}
+		 		return depositAmount;
+		 		
+	 	} catch (SQLException ex) {
+	 		throw new RuntimeException(ex);
+	 	}
+	}
 
-	// @Override
-	// public Deposit getDeposit(int depositId) throws NotFoundException {
-	// String sql = "SELECT * FROM SimpleDeposit WHERE id = ?";
-	// try (Connection connection = connectionFactory.getConnection();
-	// PreparedStatement statement = connection.prepareStatement(sql)) {
-	// statement.setInt(1, depositId);
-	// ResultSet result = statement.executeQuery();
-	//
-	// if (result.next()) {
-	// String title = result.getString("title");
-	// String category = result.getString("category");
-	//
-	// return new Deposit(depositId, depositAmount, date);
-	// } else {
-	// throw new NotFoundException("No such Deposit.");
-	// }
-	// } catch (SQLException ex) {
-	// throw new RuntimeException(ex);
-	// }
-	// }
+ 
+	/** The method java.sql.Date.valueOf(java.lang.String) received a string representing a date in the format yyyy-[m]m-[d]d. e.g.:
+		 ps.setDate(2, java.sql.Date.valueOf("2013-09-04");
+		 java.util.Date
 
+		 Suppose you have a variable endDate of type java.util.Date, you make the conversion thus:
+		 ps.setDate(2, new java.sql.Date(endDate.getTime());
+		 Current
+
+		 If you want to insert the current date:
+		 ps.setDate(2, new java.sql.Date(System.currentTimeMillis()));
+		 **********************************************************************************************/	 
+	 
+	
 	@Override
-	public int addDeposit(Deposit deposit) {
-		String sql = "INSERT INTO Deposit (goalId, depositAmount, currentDate) VALUES (?, ?, ?)";
+	public Integer addDeposit(Deposit depositAmount) {
+		String sql = "INSERT INTO ebdb.deposit_table (goal_id, deposit_amount, `current_date`) VALUES (?,?,?)";
+		//String sql = "INSERT INTO ebdb.deposit_table (deposit_amount) VALUES (?)";
 		try (Connection connection = connectionFactory.getConnection();
-				PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-
-			statement.setInt(1, deposit.getGoalId());
-			statement.setDouble(2, deposit.getDepositAmount());
-			statement.setDate(3, deposit.getCurrentDate());
-
+			
+			PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+			statement.setInt	(1, depositAmount.getGoalId());
+			statement.setDouble	(2, depositAmount.getDepositAmount());
+			statement.setDate	(3, new java.sql.Date(System.currentTimeMillis()));
+			//statement.setDate(3, depositAmount.getCurrentDate());
+			
 			int affectedRows = statement.executeUpdate();
 			if (affectedRows == 0) {
 				throw new SQLException("Creating Deposit failed, no rows affected.");
@@ -132,31 +124,13 @@ public class DepositDaoJdbcImpl implements DepositDao {
 
 			try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
 				if (generatedKeys.next()) {
-					deposit.setDepositId(generatedKeys.getInt(1));
+					depositAmount.setDepositId(generatedKeys.getInt(1));	
 				} else {
 					throw new SQLException("Creating Deposit failed, no ID obtained.");
 				}
 			}
 
-			return deposit.getDepositId();
-		} catch (SQLException ex) {
-			throw new RuntimeException(ex);
-		}
-	}
-
-	@Override
-	public void updateDeposit(int id, Deposit Deposit) throws NotFoundException {
-		String sql = "UPDATE SimpleDeposit SET depositAmount = ?, SET goalid = ? WHERE id = ?";
-		try (Connection conn = connectionFactory.getConnection();
-				PreparedStatement statement = conn.prepareStatement(sql)) {
-			statement.setDouble(1, Deposit.getDepositAmount());
-			statement.setInt(2, Deposit.getGoalId());
-			statement.setInt(3, Deposit.getGoalId());
-
-			int rowsUpdated = statement.executeUpdate();
-			if (rowsUpdated != 1) {
-				throw new NotFoundException("No such Deposit");
-			}
+			return depositAmount.getDepositId();
 		} catch (SQLException ex) {
 			throw new RuntimeException(ex);
 		}
@@ -164,9 +138,9 @@ public class DepositDaoJdbcImpl implements DepositDao {
 
 	@Override
 	public void deleteDeposit(int id) throws NotFoundException {
-		String sql = "DELETE FROM SimpleDeposit WHERE id = ?";
+		String sql = "DELETE FROM Deposit WHERE id = ?";
 		try (Connection conn = connectionFactory.getConnection();
-				PreparedStatement statement = conn.prepareStatement(sql)) {
+			PreparedStatement statement = conn.prepareStatement(sql)) {
 			statement.setInt(1, id);
 
 			int rowsUpdated = statement.executeUpdate();
@@ -176,7 +150,16 @@ public class DepositDaoJdbcImpl implements DepositDao {
 		} catch (SQLException ex) {
 			throw new RuntimeException(ex);
 		}
-	}// end GoalDetailsDao
+	}
+	
+	@Override
+	public List<Deposit> getDepositsByGoal(int goal) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}// The End GoalDetailsDao
 
 	// @Override
 	// public List<Deposit> getDepositsByGoal(int goal) {
@@ -223,19 +206,9 @@ public class DepositDaoJdbcImpl implements DepositDao {
 	// return null;
 	// }
 	//
-	@Override
-	public List<Deposit> getDepositsByGoal(int goal) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
-	@Override
-	public Deposit getDepositAmount(int depositId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-}
+//}
 // @Override
 // public Deposit getDeposit(int depositId) throws NotFoundException {
 // // TODO Auto-generated method stub
