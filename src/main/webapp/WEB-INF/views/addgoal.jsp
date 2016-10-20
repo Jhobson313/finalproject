@@ -67,11 +67,11 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['MONTH (Year)',  'PROJECTED PROGRESS', 'ACTUAL PROGRESS'],
-          ['November', 				1000,         	1500],
-          ['December',				2000,         	2500],
-          ['January',   			3000,         	3500],
-          ['Febuary',   			4000,         	4500]
+          ['MONTH (Year)',  'ACTUAL PROGRESS', 'PROJECTED PROGRESS'],
+          ['November', 				100000,         	150000],
+          ['December',				200000,         	250000],
+          ['January',   			300000,         	350000],
+          ['Febuary',   			400000,         	450000]
         ]);
 
         var options = {

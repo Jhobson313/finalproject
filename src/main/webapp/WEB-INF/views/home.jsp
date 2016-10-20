@@ -33,29 +33,35 @@
 				<li data-target="#myCarousel" data-slide-to="1"></li>
 				<li data-target="#myCarousel" data-slide-to="2"></li>
 				<li data-target="#myCarousel" data-slide-to="3"></li>
+				<li data-target="#myCarousel" data-slide-to="4"></li>
 			</ol>
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="C:/Users/User/Pictures/Dream to reality.jpg" float=right
-						height=100px width=1100px alt="Dream Big">
+					<img src="C:\Users\User\workspace\finalproject\src\main\webapp\resources\dream-big.jpg" float=right
+						height=100px width=1100px alt="Dream to reality">
 				</div>
-
+				
 				<div class="item">
-					<img src="C:/Users/User/Pictures/dreams.jpg" float=center
+					<img src="C:\Users\User\workspace\finalproject\src\main\webapp\resources\dreams.jpg" float=center
 						height=100px width=1100px alt="Dreams">
 				</div>
 
 				<div class="item">
-					<img src="C:/Users/User/Pictures/dreams-road-sign.jpg" float=center
+					<img src="C:\Users\User\workspace\finalproject\src\main\webapp\resources\dreams-road-sign.jpg" float=center
 						height=100px width=1100px alt="Follow your Dreams">
 				</div>
 
 				<div class="item">
-					<img src="C:/Users/User/Pictures/Dreams cl.jpg" float=center
+					<img src="C:\Users\User\workspace\finalproject\src\main\webapp\resources\Dreams cl.jpg" float=center
 						height=100px width=1100px alt="Dream Cloud">
 				</div>
+				<div class="item">
+					<img src="C:\Users\User\workspace\finalproject\src\main\webapp\resources\Dream to reality.jpg" float=right
+						height=100px width=1100px alt="Dream to reality">
+				</div>
+				
 			</div>
 
 			<!-- Left and right controls -->

@@ -58,9 +58,9 @@ public class GoalDao {
 		String sql = "INSERT INTO AddGoal (goalAmount, goalDescription , startDate, dueDate) VALUES (?, ?, ? ,?)";
 		try (Connection connection = (connectionFactory).getConnection();
 				PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-			System.out.println("Line 62" + goal);
-			java.sql.Date sqlstartDate = new java.sql.Date(goal.getStartDate().getTime());
-			java.sql.Date sqldueDate = new java.sql.Date(goal.getDueDate().getTime());
+			
+			java.sql.Date sqlstartDate = goal.getStartDate()==null ? null : new java.sql.Date(goal.getStartDate().getTime());
+			java.sql.Date sqldueDate = goal.getDueDate()==null ? null : new java.sql.Date(goal.getDueDate().getTime());
 			statement.setDouble(1, goal.getGoalAmount());
 			statement.setString(2, goal.getGoalDescription());
 			statement.setDate(3,  sqlstartDate);
